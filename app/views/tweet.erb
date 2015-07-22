@@ -4,14 +4,18 @@
     <title>Week 2</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   </head>
-  <body> 
+  <body>
     <div class="container">
 
-      <h1>Welcome to Fwitter!</h1>
-      <% @tweets.each do |tweet| %>
-      <p><strong><%= tweet.user %>: <%= tweet.status %></p>
-        <% end %>
-        <a href="/tweet">TWEET!</a>
+      <h1>Add a tweet</h1>
+      <form action="/tweet" method="POST">
+        <p>Username: <input type="text" name="user"></p>
+        <p>Tweet: <input type="text" name="status"></p>
+        <input class="btn btn-primary" type="submit">
+      </form>
+      
+      <a href='/'>HOME</a>
+
 
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

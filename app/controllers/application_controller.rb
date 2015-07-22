@@ -1,4 +1,3 @@
-
 require './config/environment'
 require './app/models/tweet'
 require 'pry'
@@ -11,9 +10,17 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-
+    @tweets = Tweet.all
     erb :index
   end
-
-
+  
+  get '/tweet' do
+    erb :tweet
+  end
+  
+  post '/tweet' do
+    tweet = Tweet.new({:user => params[:user], :status => params[:status]})
+    tweet.save
+    redirect '/'
+  end
 end
